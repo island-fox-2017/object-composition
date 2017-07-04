@@ -1,0 +1,4 @@
+peanut butter = 1 karung : tepung, 2 panci : gula, 1 butir : kacang, 1 gallon : susu sapi
+chocolate chip = 1 cup : tepung, 5 butir : gula, 1 pohon : coklat, 1 kotak : mentega
+chocolate cheese = 4 sendok mainan : tepung, 2 butir : telur burung unta, 1 kotak : coklat, 1 bongkah : keju cazu marzu
+chocolate butter = 3 truk : tepung, 3 pohon tebu : gula, 1 buah : coklat, 1 colek : mentega
