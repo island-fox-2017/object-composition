@@ -98,7 +98,7 @@ class RicheeseFactory {
     let sugarFreeFood = [];
     if (day === 'tuesday') {
       for (let i = 0; i < Object.keys(cookiesBatch).length; i++) {
-        if (cookiesBatch[i].sugarExistence === true) sugarFreeFood.push(cookiesBatch[i]);
+        if (cookiesBatch[i].sugarExistence === false) sugarFreeFood.push(cookiesBatch[i]);
       }
       return sugarFreeFood;
     }
