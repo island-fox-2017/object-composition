@@ -1,0 +1,4 @@
+peanut butter = 1 cup:flour, 2 cups:sugar, 2 cups:peanut
+chocolate chip = 2 cup:flour, 2 cups:peanut
+chocolate cheese = 1 cup:flour, 5 cups:sugar
+chocolate butter = 3 cup:flour, 3 cups:sugar
