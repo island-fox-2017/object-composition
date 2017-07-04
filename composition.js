@@ -79,8 +79,33 @@ class CookieFactory {
     }
   }
     return arrCookies
+  }
+  
+  static cookieRecommendation(day, req){
+    let noSugar = req
+    if(day === 'tuesday'){
+      for(let i = noSugar.length-1; i>=0; i--){
+        for(let j = 0; j < noSugar[i].ingredients.length; j++ ){
+          if(noSugar[i].ingredients[j].name === 'sugar'){
+            noSugar.splice(i, 1)
+            break;
+          }
+        }
+      }
+    }
+    return noSugar
   } 
 }
 
 let batch_of_cookies = CookieFactory.create(option)
-console.log(batch_of_cookies);
+// console.log(JSON.stringify(batch_of_cookies, null, 2)); //result with JSON
+console.log(batch_of_cookies); //result array of object
+
+let sugarFreeCookie = CookieFactory.cookieRecommendation('tuesday', batch_of_cookies)
+console.log('\n');
+console.log('========================================================================');
+console.log('Cookie sugar free is');
+
+for(let i = 0; i < sugarFreeCookie.length; i++){
+  console.log(sugarFreeCookie[i].name);
+}
