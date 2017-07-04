@@ -109,3 +109,4 @@ console.log('Cookie sugar free is');
 for(let i = 0; i < sugarFreeCookie.length; i++){
   console.log(sugarFreeCookie[i].name);
 }
+console.log('========================================================================');
