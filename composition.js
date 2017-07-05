@@ -35,8 +35,9 @@ class CookiesList {
         ing2d.push(ing_split)
       }
 
+      CookieFactory.cookieRecommendation(cookie_name);
       CookieFactory.create(cookie_name);
-      // CookieFactory.cookieRecommendation(cookie_name);
+
     });
   }
 }
@@ -69,16 +70,20 @@ class Cookie {
   getSugar(nosugar) {
 
     for(let i = 0; i < nosugar.length; i++) {
-      if (/sugar/.test(nosugar) == nosugar[i]){ //bisa juga tanpa pembanding if (/sugar/.test(sugar))
+      if (/sugar/.test(nosugar) != nosugar[i]){ //bisa juga tanpa pembanding if (/sugar/.test(sugar))
+        // console.log(this.nama);
         return 'Has Sugar'
       } else {
-        CookieFactory.cookieRecommendation(this.nama)
-
+        let nama_kue = this.nama
+        // CookieFactory.cookieRecommendation(nama_kue)
+        console.log(`REKOMENDASI KUE TANPA GULA adalah : ${nama_kue}`);
         return 'Sugar Free'
       }
 
     }
+  }
 
+  makeRecommendation(){
 
   }
 }
@@ -138,15 +143,23 @@ class CookieFactory {
     console.log(MyCookies);
   }
 
-  //static for ingredients
-  static cookieRecommendation(day, cookiess) {
-    let noSugar = []
-    // for (let i = 0; i < cookiess.length; i++) {
-    //   if (cookiess[i].containSugar == 'Sugar Free') {
-        noSugar.push(cookiess);
+  static cookieRecommendation(day = null, list) {
+    // let n = []
+    // if(day == 'tuesday'){
+    //   for(let i = 0; i < list.length; i++){
+    //     if(Cookie.getSugar() == 'Free Sugar'){
+    //       n.push(list[i])
+    //     }
     //   }
     // }
-    return noSugar;
+    return list
+    // let noSugar = []
+    // // for (let i = 0; i < no_sugar_name.length; i++) {
+    // //   if (cookiess[i].containSugar == 'Sugar Free') {
+    //     noSugar.push(no_sugar_name);
+    // //   }
+    // // }
+    // console.log(no_sugar_name);// no_sugar_name;
   }
 }
 
@@ -156,11 +169,12 @@ kue.readCookiestxt()
 // let batch_of_cookies = CookieFactory.create(options)
 // console.log(batch_of_cookies);
 // let sugarFreeFoods = CookieFactory.cookieRecommendation("tuesday")
-
+let nama_kue = Cookie.nama
 console.log('===================================');
 console.log('====== SUGAR FREE CAKES ARE =======');
-let sugarFree = CookieFactory.cookieRecommendation("tuesday");
-console.log(sugarFree);
+// let sugarFree = CookieFactory.cookieRecommendation("tuesday", nama_kue);
+// console.log(sugarFree);
+CookieFactory.cookieRecommendation();
 // for (let n = 0; n < sugarFree.length; n++) {
 //   console.log(sugarFree[n].name);
 // }
