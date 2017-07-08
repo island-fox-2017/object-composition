@@ -35,7 +35,7 @@ class CookiesList {
         ing2d.push(ing_split)
       }
 
-      CookieFactory.cookieRecommendation(cookie_name);
+      // CookieFactory.cookieRecommendation(cookie_name);
       CookieFactory.create(cookie_name);
 
     });
@@ -71,12 +71,13 @@ class Cookie {
 
     for(let i = 0; i < nosugar.length; i++) {
       if (/sugar/.test(nosugar) != nosugar[i]){ //bisa juga tanpa pembanding if (/sugar/.test(sugar))
-        // console.log(this.nama);
+
         return 'Has Sugar'
       } else {
         let nama_kue = this.nama
-        // CookieFactory.cookieRecommendation(nama_kue)
-        console.log(`REKOMENDASI KUE TANPA GULA adalah : ${nama_kue}`);
+        let upper = nama_kue.toUpperCase()        //
+        CookieFactory.cookieRecommendation(nama_kue)
+        console.log(`========================================\nRekomendasi Kue Tanpa Gula Adalah:\n${upper}\n========================================`);
         return 'Sugar Free'
       }
 
