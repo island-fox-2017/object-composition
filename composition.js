@@ -2,7 +2,6 @@
 var fs = require('fs');
 var options = fs.readFileSync('cookies.txt', 'utf8').toString().trim().split('\n');
 let optSplit = []
-
 for (var i = 0; i<options.length; i++) {
    optSplit.push(options[i].split(' = '))
 }
@@ -87,9 +86,15 @@ class CookieFactory {
     return objCookie;
   }
   static cookieRecomendation(day, cookie_name) {
-    let recomendation = []
-
-    return recomendation;
+    let rekomen = []
+    if (day == 'tuesday') {
+      for (var i = 0; i < cookie_name.length; i++) {
+        if(cookie_name[i].has_sugar == false) {
+          rekomen.push(cookie_name[i].name)
+        }
+      }
+    }
+    return rekomen.join('');
   }
 }
 
@@ -99,7 +104,7 @@ let sugarFree = CookieFactory.cookieRecomendation("tuesday", batch_of_cookies)
 // console.log(JSON.stringify(batch_of_cookies,null,2))
 console.log(batch_of_cookies);
 console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-console.log(`Kue yang tidak mengandung gula : ${sugarFree}`);
+console.log(`Kue yang tidak mengandung gula : ${JSON.stringify(sugarFree)}`);
 
 // console.log(optSplit[0][1])
 // let  a = new Cookie()
