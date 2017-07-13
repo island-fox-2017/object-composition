@@ -21,7 +21,7 @@ class Cookie {
         for (let i = 0; i < splitPerBahan.length; i++) {
             arrayHasil.push(new Ingridients(splitPerBahan[i].split(":")))
         }
-        return arrayHasil;
+        return JSON.stringify(arrayHasil) ;
   }
   hasGula(ingridients){
     return /sugar/.test(ingridients)
@@ -84,9 +84,11 @@ class CookieFactory {
   static cookieRecomendation(hari, options){
     var noSugar = []
     for (var i = 0; i < options.length; i++) {
-      if (options[i].hasGula == false) {
+    if(hari == 'tuesday' && options[i].hasGula == false){
         noSugar.push(options[i].name)
-
+      }
+      else {
+        noSugar.push(options[i].name)
       }
     }
     return noSugar
@@ -100,6 +102,6 @@ let options = fs.readFileSync('cookies.txt', 'utf8').toString().trim().split('\n
 let batch_of_cookies = CookieFactory.create(options)
 console.log(batch_of_cookies);
 
-let sugarFreeFoods = CookieFactory.cookieRecomendation('tuesday',batch_of_cookies);
+let sugarFreeFoods = CookieFactory.cookieRecomendation('wednesday',batch_of_cookies);
 console.log("sugar free cakes are : ");
 console.log(sugarFreeFoods);
