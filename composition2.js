@@ -5,7 +5,7 @@ class Ingredient{
     constructor(option){
         this.name = option["name"];
         this.amount = option["amount"];
-        this.has_sugar = option["has_sugar"];
+        // this.has_sugar = option["has_sugar"];
     }
 }
 
@@ -27,11 +27,11 @@ class Cookie {
                     let resep = new Ingredient(option);
                     resep.name=recipe[j].split(': ')[1];
                     resep.amount=recipe[j].split(': ')[0];
-                    if(/sugar/.test(recipe[j].split(': ')[1])){
-                        resep.has_sugar = true
-                    } else {
-                        resep.has_sugar = false
-                    }
+                    // if(/sugar/.test(recipe[j].split(': ')[1])){
+                    //     resep.has_sugar = true
+                    // } else {
+                    //     resep.has_sugar = false
+                    // }
                     arr.push(resep);
                 }
             }
@@ -44,12 +44,11 @@ class Cookie {
     has_sugar(ingredients){
         let has_sugar_arr = []
         for (let i=0; i<ingredients.length; i++){
-            if(ingredients[i].has_sugar){
-                has_sugar_arr.push('1')
+            if(ingredients[i].name == 'sugar'){
+                return true
             }
         }
-        if (has_sugar_arr.length > 0 ) return true
-        else return false
+      return false
     }
 
 }
