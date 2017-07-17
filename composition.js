@@ -67,6 +67,23 @@ class CookieFactory {
   constructor() {
 
   }
+
+  static recommend(day, cookies) {
+    var nampan = []
+    cookies.forEach(cook => {
+      if (day == 'tuesday') {
+        if (cook.has_sugar == true) {
+          nampan.push(cook.name)
+        }
+      }
+      else {
+        nampan.push(cook.name)
+      }
+    })
+    return nampan
+  }
+
+
   static create(options) {
     var toples = [];
     for (var i = 0; i < options.length; i++) {
@@ -88,5 +105,8 @@ class CookieFactory {
     return toples
   }
 }
+
+
 let bikinKue = CookieFactory.create(source);
 console.log(bikinKue);
+console.log(CookieFactory.recommend('tuesday', bikinKue));
